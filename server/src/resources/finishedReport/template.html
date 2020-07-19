@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+    * {
+        direction: rtl;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-color: transparent;
+        font-size: 9pt;
+    }
+
+    td {
+        padding: 7px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f5f5f5;
+    }
+
+    .header {
+        text-align: center;
+        margin: 5px;
+        margin-top: 0px;
+    }
+
+    .pager {
+        font-size: 8pt;
+        float: left;
+        direction: ltr;
+
+    }
+
+    .sum {
+        direction: ltr;
+        margin: 40px;
+    }
+</style>
+
+<body>
+
+    <div class="header">
+
+        <h3>{{organization.name }} </h3>
+        {{#project}}
+        <h3>
+            <span> {{project.name}}</span>
+        </h3>
+        {{/project}}
+        <h3>
+            <span>דוח מסיימים ליום {{day}}</span>
+        </h3>
+        <div>
+            <span>{{month}}</span>
+        </div>
+
+    </div>
+    <table>
+        <tr>
+            <td>מס. תוכנית</td>
+            <td>שם</td>
+            <td>סכום</td>
+            <td>חשבון</td>
+
+            <td>ת. פתיחה</td>
+            <td>ת. סיום</td>
+            <td colspan="3"> כתובת \ טלפון</td>
+
+
+        </tr>
+        {{#records}}
+        <tr>
+            <td>{{programNo}}-{{projectKey}}</td>
+
+            <td>{{name}}</td>
+            <td>{{sum}}</td>
+            <td>{{account}}</td>
+
+            <td>{{startDate}}</td>
+            <td>{{endDate}}</td>
+            <td>{{city}}</td>
+            <td> {{address}}</td>
+            <td> {{telephone}}</td>
+
+        </tr>{{/records}}
+
+    </table>
+
+    <div class="sum">
+        <b> סה"כ: {{sum}} ש"ח</b>
+    </div>
+
+</body>
+
+</html>
